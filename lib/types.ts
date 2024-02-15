@@ -1,4 +1,11 @@
 export interface Property {
+    summary: {
+        absenteeInd: string;
+        propclass: string;
+        propsubtype: string;
+        yearbuilt: number;
+        legal1: string;
+    },
     area: {
         blockNum: string;
         loctype: string;
@@ -11,5 +18,9 @@ export interface Property {
         srvySection?: string;
         srvyTownship?: string;
         taxcodearea?: string;
+    },
+    address: {
+        country: string;
+        oneLine: string;
     }
 }

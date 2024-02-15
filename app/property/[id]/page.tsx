@@ -12,6 +12,13 @@ import { Property } from "@/lib/types";
 
 export default function PropertyDetails({ params }: { params: { id: string } }) {
     const [property, setProperty] = useState<Property>({
+        summary: {
+            absenteeInd: '',
+            propclass: '',
+            propsubtype: '',
+            yearbuilt: 0,
+            legal1: ''
+        },
         area: {
             blockNum: '',
             loctype: '',
@@ -20,6 +27,10 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
             munname: '',
             muncode: '',
             subdname: '',
+        },
+        address: {
+            country: '',
+            oneLine: ''
         }
     });
     const [transition, startTransition] = useTransition()
@@ -39,7 +50,68 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
 
     return (
         <div className="flex-1 container mx-auto my-10">
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid md:grid-cols-2 gap-5">
+                <Card className="rounded">
+                    <CardHeader className="text-white rounded-t-xl bg-black">
+                        <h3 className="text-lg">Property Summary</h3>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="relative overflow-x-auto">
+                            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <tbody>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            Absentee/Occupied:
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {property.summary.absenteeInd}
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            Type of property:
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {property.summary.propclass}
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            Year built:
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {property.summary.yearbuilt}
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            Legal description:
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {property.summary.legal1}
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            Country:
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {property.address.country}
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                            Property address:
+                                        </th>
+                                        <td className="px-6 py-4">
+                                            {property.address.oneLine}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </CardContent>
+                </Card>
                 <Card className="rounded">
                     <CardHeader className="text-white rounded-t-xl bg-black">
                         <h3 className="text-lg">Property Area</h3>
