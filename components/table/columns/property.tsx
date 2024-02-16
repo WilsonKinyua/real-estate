@@ -24,7 +24,7 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <div className="flex space-x-2">
-                    {property.assessment.owner.owner1 ? (property.assessment.owner.owner1.firstNameAndMi + property.assessment.owner.owner1.lastName) : 'N/A'}
+                    {property.assessment.owner.owner1 ?? '' ? (property.assessment.owner.owner1.firstNameAndMi ?? '' + property.assessment.owner.owner1.lastName ?? '') : 'N/A'}
                 </div>
             )
         }
@@ -47,7 +47,7 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <div className="flex space-x-2">
-                    {property.summary.propClass}
+                    {property.summary.propClass ?? ''}
                 </div>
             )
         }
@@ -70,7 +70,7 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <div className="flex space-x-2">
-                    {property.address.oneLine}
+                    {property.address.oneLine ?? ''}
                 </div>
             )
         }
@@ -93,7 +93,7 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <div className="flex space-x-2">
-                    <Badge>$ {property.sale.saleAmountData.saleAmt}</Badge>
+                    {property.sale.saleAmountData.saleAmt ?? ''}
                 </div>
             )
         }
@@ -116,7 +116,7 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <div className="flex space-x-2">
-                    {property.summary.yearBuilt}
+                    {property.summary.yearBuilt ?? ''}
                 </div>
             )
         }
