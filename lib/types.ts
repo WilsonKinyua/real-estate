@@ -22,5 +22,16 @@ export interface Property {
     address: {
         country: string;
         oneLine: string;
-    }
+    },
+    building: {
+        size: {
+            bldgsize: number;
+            grosssize: number;
+            grosssizeadjusted: number;
+            groundfloorsize: number;
+            livingsize: number;
+            sizeInd: string;
+            universalsize: number;
+        }
+    },
 }

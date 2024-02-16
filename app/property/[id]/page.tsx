@@ -34,6 +34,17 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
         address: {
             country: '',
             oneLine: ''
+        },
+        building: {
+            size: {
+                bldgsize: 0,
+                grosssize: 0,
+                grosssizeadjusted: 0,
+                groundfloorsize: 0,
+                livingsize: 0,
+                sizeInd: '',
+                universalsize: 0
+            }
         }
     });
     const [transition, startTransition] = useTransition()
@@ -192,6 +203,84 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                     </>
                 )}
             </div>
+            {!transition && (
+                <Card className="rounded mb-10">
+                    <CardHeader className="text-white rounded-t-xl bg-black">
+                        <h3 className="text-lg">Property building</h3>
+                    </CardHeader>
+                    <CardContent className="grid grid-cols-2 my-5">
+                        <Card className="rounded">
+                            <CardHeader className="text-white rounded-t-xl bg-black">
+                                <h3 className="text-sm">Size</h3>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="relative overflow-x-auto">
+                                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <tbody>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                    Total square feet:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.bldgsize}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                    Gross square feet:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.grosssize}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                    Adjusted Gross Square Footage:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.grosssizeadjusted}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                    Sum of ground floor living square footage:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.groundfloorsize}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                    Living square feet:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.livingsize}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                    Building Square Footage:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.sizeInd}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                    Derived living or building square:
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {property.building.size.universalsize}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </CardContent>
+                </Card>
+            )}
         </div>
     )
 }
