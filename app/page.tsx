@@ -43,6 +43,10 @@ export default function Home() {
                       toast.error(res.error)
                       return
                     }
+                    res.forEach((property: any) => {
+                      property.address1 = formState.address1
+                      property.address2 = formState.address2
+                    })
                     setPropertiesData(res)
                   })
                 })
@@ -66,8 +70,10 @@ export default function Home() {
                   value={formState.address2}
                 />
               </div>
-              <Button className="h-11">
-                {transition ? <span className="flex"><span>Fetching...</span> <Loader className="animate-spin h-3 w-3 ml-2" /></span> : "Search"}
+              <Button className="h-11"
+                disabled={transition}
+              >
+                {transition ? <span className="flex"><span>Loading...</span> <Loader className="animate-spin h-5 w-5 ml-2" /></span> : "Search"}
               </Button>
             </form>
           </div>

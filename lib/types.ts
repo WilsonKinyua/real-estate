@@ -34,4 +34,15 @@ export interface Property {
             universalsize: number;
         }
     },
+    buildingPermits: [
+        {
+            effectiveDate: string;
+            permitNumber: string;
+            jobValue: number;
+            fees: number;
+            businessName: string;
+            homeOwnerName: string;
+            classifiers: string[];
+        }
+    ]
 }

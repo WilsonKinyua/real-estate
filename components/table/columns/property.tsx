@@ -147,7 +147,9 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <Button asChild variant={"default"}>
-                    <Link href={`/property/${property.identifier.Id}`}>View</Link>
+                    <Link href={`/property/${property.identifier.Id}?address1=${property.address1}&address2=${property.address2}`}>
+                        View
+                    </Link>
                 </Button>
             )
         }
