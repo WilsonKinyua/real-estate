@@ -181,7 +181,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                             </tr>
                                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                                 <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
-                                                    "County" name in the U.S. :
+                                                    &quot;County&quot; name in the U.S. :
                                                 </th>
                                                 <td className="px-6 py-4">
                                                     {property.area.countrysecsubd}
