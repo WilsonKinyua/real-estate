@@ -93,7 +93,7 @@ export const propertyColumns: ColumnDef<[]>[] = [
             const property = row.original as any
             return (
                 <div className="flex space-x-2">
-                    <Badge>$ {property.sale.saleAmountData.saleAmt.toLocaleString()}</Badge>
+                    <Badge>$ {property.sale.saleAmountData.saleAmt}</Badge>
                 </div>
             )
         }

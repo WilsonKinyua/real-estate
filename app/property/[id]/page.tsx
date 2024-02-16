@@ -46,6 +46,13 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                 livingsize: 0,
                 sizeInd: '',
                 universalsize: 0
+            },
+            rooms: {
+                bathFixtures: 0,
+                bathsFull: 0,
+                bathsTotal: 0,
+                beds: 0,
+                roomsTotal: 0
             }
         },
         buildingPermits: [
@@ -225,7 +232,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                         <CardHeader className="text-white rounded-t-xl bg-black">
                             <h3 className="text-lg">Property building</h3>
                         </CardHeader>
-                        <CardContent className="grid md:grid-cols-2 my-5">
+                        <CardContent className="grid md:grid-cols-2 gap-5 my-5">
                             <Card className="rounded">
                                 <CardHeader className="text-white rounded-t-xl bg-black">
                                     <h3 className="text-sm">Size</h3>
@@ -295,6 +302,59 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                     </div>
                                 </CardContent>
                             </Card>
+                            <Card className="rounded">
+                                <CardHeader className="text-white rounded-t-xl bg-black">
+                                    <h3 className="text-sm">Rooms</h3>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="relative overflow-x-auto">
+                                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            <tbody>
+                                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                        Bath Fixtures:
+                                                    </th>
+                                                    <td className="px-6 py-4">
+                                                        {property.building.rooms.bathFixtures ?? '-'}
+                                                    </td>
+                                                </tr>
+                                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                        Baths Full:
+                                                    </th>
+                                                    <td className="px-6 py-4">
+                                                        {property.building.rooms.bathsFull ?? '-'}
+                                                    </td>
+                                                </tr>
+                                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                        Baths Total:
+                                                    </th>
+                                                    <td className="px-6 py-4">
+                                                        {property.building.rooms.bathsTotal ?? '-'}
+                                                    </td>
+                                                </tr>
+                                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                        Beds:
+                                                    </th>
+                                                    <td className="px-6 py-4">
+                                                        {property.building.rooms.beds ?? '-'}
+                                                    </td>
+                                                </tr>
+                                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400 capitalize">
+                                                        Rooms Total:
+                                                    </th>
+                                                    <td className="px-6 py-4">
+                                                        {property.building.rooms.roomsTotal ?? '-'}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </CardContent>
+                            </Card>
                         </CardContent>
                     </Card>
                     <Card className="rounded mb-10">
@@ -330,7 +390,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {property.buildingPermits.map((permit, key) => (
+                                        {/* {property.buildingPermits.map((permit, key) => (
                                             <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700" key={key}>
                                                 <td className="px-6 py-4">
                                                     {permit.businessName ?? '-'}
@@ -354,7 +414,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                                     {permit.fees ?? '-'}
                                                 </td>
                                             </tr>
-                                        ))}
+                                        ))} */}
                                     </tbody>
                                 </table>
                             </div >

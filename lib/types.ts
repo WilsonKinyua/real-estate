@@ -32,7 +32,14 @@ export interface Property {
             livingsize: number;
             sizeInd: string;
             universalsize: number;
-        }
+        },
+        rooms: {
+            bathFixtures: number;
+            bathsFull: number;
+            bathsTotal: number;
+            beds: number;
+            roomsTotal: number;
+        },
     },
     buildingPermits: [
         {
