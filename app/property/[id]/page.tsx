@@ -390,7 +390,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {/* {property.buildingPermits.map((permit, key) => (
+                                        {property.buildingPermits && property.buildingPermits.map((permit, key) => (
                                             <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700" key={key}>
                                                 <td className="px-6 py-4">
                                                     {permit.businessName ?? '-'}
@@ -414,7 +414,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                                     {permit.fees ?? '-'}
                                                 </td>
                                             </tr>
-                                        ))} */}
+                                        ))}
                                     </tbody>
                                 </table>
                             </div >
