@@ -399,7 +399,7 @@ export default function PropertyDetails({ params }: { params: { id: string } }) 
                                                     {permit.homeOwnerName ?? '-'}
                                                 </td>
                                                 <td className="px-6 py-4">
-                                                    {permit.classifiers.join(', ')}
+                                                    {permit.classifiers}
                                                 </td>
                                                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white uppercase">
                                                     {permit.effectiveDate ?? '-'}
